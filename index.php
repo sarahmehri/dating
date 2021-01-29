@@ -1,3 +1,8 @@
+<!--
+* Sarah Mehri
+* my controller by rendering the page
+* 1/27/2021
+-->
 <?php
 //this is my controller
 
