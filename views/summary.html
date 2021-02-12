@@ -1,0 +1,63 @@
+<!--
+* Sarah Mehri
+* 2/11/2021
+*summary.html
+* this is the profile creating page in dating web
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <title>Dating Web - Summary</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+          integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles/styles.css">
+</head>
+<body>
+    <!--navbar-->
+    <nav class="navbar navbar-expand-md bg-dark navbar-dark">
+        <a class="navbar-brand" href="https://smehri.greenriverdev.com/328/dating/">Dating Web</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="collapsibleNavbar">
+
+        </div>
+    </nav>
+
+<div class="container  border rounded mt-4 mb-4 p-4">
+    <div class="row">
+     <div class="col-md-6 p-3 col-lg-6">
+            <div class="border rounded">
+            <h6 class="p-3 mb-0 border-bottom">Name: {{@name}}</h6>
+            <h6 class="p-3 mb-0 border-bottom">Gender: {{@gender}}</h6>
+            <h6 class="p-3 mb-0 border-bottom">Age: {{@age}}</h6>
+            <h6 class="p-3 mb-0 border-bottom">Phone: {{@phone}}</h6>
+            <h6 class="p-3 mb-0 border-bottom">Email: {{@email}}</h6>
+            <h6 class="p-3 mb-0 border-bottom">State: {{@state}}</h6>
+            <h6 class="p-3 mb-0 border-bottom">Seeking: {{@seeking}}</h6>
+            <h6 class="p-3 mb-0">Interests:
+                <repeat group="{{ @interests }}" value="{{ @interest }}">
+                    {{ @interest }}
+                </repeat></h6>
+            </div>
+        </div>
+
+        <div class="col-md-6 col-lg-5  align-items-center">
+                <img class=" rounded h mt-2" src="images/pic.png">
+        <div class="p-3">
+                <label class="pt-0 mt-0 position-relative fontSize">Biography</label>
+                <textarea class="form-control textarea1"  placeholder="{{@bio}}" maxlength="2000" rows="10"></textarea>
+        </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col text-center">
+
+            <button type="submit" class="btn btn-warning">Contact Me!</button>
+        </div>
+    </div>
+</div>
+</body>
+</html>
