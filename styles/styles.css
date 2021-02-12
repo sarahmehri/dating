@@ -18,3 +18,20 @@ h3, h1{
     font-weight: bold;
     border-radius: 10px;
 }
+.bg{
+    background: lightgray;
+    border: #5a6268;
+}
+.h{
+    width: 90%;
+
+}
+.fontSize{
+    font-size: larger;
+}
+.textarea1 {
+    border: none;
+    background-color: transparent;
+    resize: none;
+    outline: none;
+}
