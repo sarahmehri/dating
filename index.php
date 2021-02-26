@@ -59,17 +59,14 @@ $f3->route('GET|POST /personal', function ($f3) {
             $f3->set("errors['phone']", 'Please enter a valid phone number');
         }
         $f3->set('userGender', $_POST['userGender']);
-        if($_POST['userGender'] != null && validGender($_POST['userGender']))
-        {
+        if($_POST['userGender'] != null && validGender($_POST['userGender'])) {
             $_SESSION['userGender'] = $_POST['userGender'];
         }
-        else
-        {
+        else {
             $_SESSION['userGender'] = "N/A";
         }
 
-        if(empty($f3->get('errors')))
-        {
+        if(empty($f3->get('errors'))) {
             $f3->reroute('profile');
         }
     }
@@ -82,12 +79,10 @@ $f3->route('GET|POST /personal', function ($f3) {
 $f3->route('GET|POST /profile', function ($f3) {
     $f3->set('states',getStates());
     $f3->set('genders', getGenders());
-    if($_SERVER['REQUEST_METHOD'] == "POST")
-    {
+    if($_SERVER['REQUEST_METHOD'] == "POST") {
 
         $f3->set('email', $_POST['email']);
-        if(validEmail($_POST['email']))
-        {
+        if(validEmail($_POST['email'])) {
             $_SESSION['email'] = $_POST['email'];
         }
         else{
@@ -95,16 +90,14 @@ $f3->route('GET|POST /profile', function ($f3) {
         }
 
         $f3->set('userState', $_POST['states']);
-        if(validState($_POST['states']))
-        {
+        if(validState($_POST['states'])) {
             $_SESSION['state'] = $_POST['states'];
         }
         else{
             $_SESSION['states'] = "N/A";
         }
         $f3->set('seeking', $_POST['seeking']);
-        if($_POST['seeking'] != null && validGender($_POST['seeking']))
-        {
+        if($_POST['seeking'] != null && validGender($_POST['seeking'])) {
             $_SESSION['seeking'] = $_POST['seeking'];
         }
         else{
@@ -112,15 +105,13 @@ $f3->route('GET|POST /profile', function ($f3) {
         }
 
         $f3->set('bio', $_POST['bio']);
-        if(!empty($_POST['bio']))
-        {
+        if(!empty($_POST['bio'])) {
             $_SESSION['bio'] = $_POST['bio'];
         }
         else{
             $_SESSION['bio'] = "N/A";
         }
-        if(empty($f3->get('errors')))
-        {
+        if(empty($f3->get('errors'))) {
             $f3->reroute('interest');
         }
     }
@@ -138,13 +129,12 @@ $f3->route('GET|POST /interest', function ($f3) {
 
     if($_SERVER['REQUEST_METHOD'] == "POST"){
 
-
         if(isset($_POST['indoorInterests']) && validIndoor($_POST['indoorInterests'])){
             $_SESSION['indoorInterests'] = $_POST['indoorInterests'];
         }
         else{
 
-            $_SESSION['indoorInterests'] = "";
+            $_SESSION['indoorInterests'] = (array) null;
         }
 
         if(isset($_POST['outdoorInterests']) && validOutdoor($_POST['outdoorInterests'])){
@@ -152,13 +142,14 @@ $f3->route('GET|POST /interest', function ($f3) {
         }
         else {
 
-            $_SESSION['outdoorInterests'] = "";
+            $_SESSION['outdoorInterests'] = (array) null;
         }
 
         if(!empty($_SESSION['outdoorInterests'] || $_SESSION['indoorInterests'])) {
             $_SESSION['indoorAndOutdoor'] =
             implode(", ", array_merge($_SESSION['indoorInterests'],$_SESSION['outdoorInterests']));
         }
+
         else{
             $_SESSION['indoorAndOutdoor'] ="N/A";
         }
@@ -173,10 +164,11 @@ $f3->route('GET|POST /interest', function ($f3) {
 });
 
 //summary route
-$f3->route('GET|POST /summary', function ($f3) {
-    var_dump($_SESSION);
+$f3->route('GET|POST /summary', function () {
+    //var_dump($_SESSION);
     $view = new Template();
     echo $view->render('views/summary.html');
+    //session_destroy();
 });
 
 //Rune fat free
