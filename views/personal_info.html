@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--
 * Sarah Mehri
-* 2/11/2021
+* 2/25/2021
 *personal_info.html
 * this is the profile creating page in dating web
 -->
@@ -37,7 +37,6 @@
                     <input type="text" class="form-control" id="fname" name="fname" placeholder=""
                            value="{{@fname}}">
 
-                    <!--  Error Message  -->
                     <check if="{{isset(@errors['fname'])}}">
                         <p class="text-danger">{{@errors['fname']}}</p>
                     </check>
@@ -48,7 +47,6 @@
                     <input type="text" class="form-control" id="lname" name="lname" placeholder=""
                            value="{{@lname}}">
 
-                    <!--  Error Message  -->
                     <check if="{{isset(@errors['lname'])}}">
                         <p class="text-danger">{{@errors['lname']}}</p>
                     </check>
@@ -109,7 +107,7 @@
         </div>
         <div class="row">
             <div class="col text-right">
-                <button type="submit" class="btn btn-warning">Next ></button>
+                <button type="submit" class="btn btn-warning">Next >></button>
             </div>
         </div>
 

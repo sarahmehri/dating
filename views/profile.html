@@ -46,8 +46,7 @@
                 <div class="form-group">
                     <label class="font-weight-bold">State</label>
 
-                    <!-- State Select Options -->
-                    <select  name="states" class="form-control">
+                    <select  name="states" class="custom-select">
                         <option selected>select</option>
                         <repeat group="{{@states}}" value="{{@state}}">
                             <check if="{{@state}} == {{@userState}}">
@@ -60,8 +59,6 @@
                             </check>
                         </repeat>
                     </select>
-
-                    <!--  Error Message  -->
                     <check if="{{isset(@errors['states'])}}">
                         <p class="text-danger">{{@errors['states']}}</p>
                     </check>
@@ -72,7 +69,6 @@
                         <label class="font-weight-bold">Seeking</label>
                     </div>
 
-                    <!--  User Gender Options  -->
                     <repeat group="{{@genders}}" value="{{@gender}}">
                         <div class="form-check form-check-inline">
 
@@ -91,13 +87,13 @@
                 <div class="form-group">
                     <label class="font-weight-bold" for="bio">Biography</label>
                     <textarea class="form-control" id="bio" name="bio" placeholder=""
-                              maxlength="1500" rows="6">{{@bio}}</textarea>
+                              maxlength="1600" rows="6">{{@bio}}</textarea>
                 </div>
             </div>
         </div>
         <div class="row">
        <div class="col text-right">
-           <button type="submit" class="btn btn-warning">Next ></button>
+           <button type="submit" class="btn btn-warning">Next >></button>
             </div>
         </div>
     </form>
