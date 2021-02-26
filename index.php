@@ -32,7 +32,7 @@ $f3->route('GET|POST /personal', function ($f3) {
         }
         else{
 
-            $f3->set("errors['fname']", 'Please enter a name');
+            $f3->set("errors['fname']", 'Please enter your name');
         }
         $f3->set('lname', $_POST['lname']);
         if(validName($_POST['lname']))
@@ -40,7 +40,7 @@ $f3->route('GET|POST /personal', function ($f3) {
             $_SESSION['lname'] = $_POST['lname'];
         }
         else{
-            $f3->set("errors['lname']", 'Please enter a valid last name');
+            $f3->set("errors['lname']", 'Please enter your last name');
         }
         $f3->set('age', $_POST['age']);
         if(validAge($_POST['age']))
@@ -48,7 +48,7 @@ $f3->route('GET|POST /personal', function ($f3) {
             $_SESSION['age'] = $_POST['age'];
         }
         else{
-            $f3->set("errors['age']", 'Please enter a valid age (between 18 - 118)');
+            $f3->set("errors['age']", 'Please enter a age (between 18 - 118)');
         }
         $f3->set('phone', $_POST['phone']);
         if(validPhone($_POST['phone']))
