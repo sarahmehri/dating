@@ -30,17 +30,14 @@
     <div class="row">
      <div class="col-md-6 p-3 col-lg-6">
             <div class="border rounded">
-            <h6 class="p-3 mb-0 border-bottom">Name: {{@name}}</h6>
-            <h6 class="p-3 mb-0 border-bottom">Gender: {{@gender}}</h6>
-            <h6 class="p-3 mb-0 border-bottom">Age: {{@age}}</h6>
-            <h6 class="p-3 mb-0 border-bottom">Phone: {{@phone}}</h6>
-            <h6 class="p-3 mb-0 border-bottom">Email: {{@email}}</h6>
-            <h6 class="p-3 mb-0 border-bottom">State: {{@state}}</h6>
-            <h6 class="p-3 mb-0 border-bottom">Seeking: {{@seeking}}</h6>
-            <h6 class="p-3 mb-0">Interests:
-                <repeat group="{{ @interests }}" value="{{ @interest }}">
-                    {{ @interest }}
-                </repeat></h6>
+            <h6 class="p-3 mb-0 border-bottom">Name: {{@SESSION.fname}} {{@SESSION.lname}} </h6>
+            <h6 class="p-3 mb-0 border-bottom">Gender: {{@SESSION.userGender}}</h6>
+            <h6 class="p-3 mb-0 border-bottom">Age: {{@SESSION.age}}</h6>
+            <h6 class="p-3 mb-0 border-bottom">Phone: {{@SESSION.phone}}</h6>
+            <h6 class="p-3 mb-0 border-bottom">Email: {{@SESSION.email}}</h6>
+            <h6 class="p-3 mb-0 border-bottom">State: {{@SESSION.state}}</h6>
+            <h6 class="p-3 mb-0 border-bottom">Seeking: {{@SESSION.seeking}}</h6>
+            <h6 class="p-3 mb-0">Interests: {{@SESSION.indoorAndOutdoor}}</h6>
             </div>
         </div>
 
@@ -48,7 +45,7 @@
                 <img class=" rounded h mt-2" src="images/pic.png">
         <div class="p-3">
                 <label class="pt-0 mt-0 position-relative fontSize">Biography</label>
-                <textarea class="form-control textarea1"  placeholder="{{@bio}}" maxlength="2000" rows="10"></textarea>
+                <textarea class="form-control textarea1"  placeholder="{{@SESSION.bio}}" maxlength="1000" rows="10"></textarea>
         </div>
         </div>
     </div>
