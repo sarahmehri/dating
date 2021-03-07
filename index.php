@@ -1,11 +1,16 @@
 <?php
-//Turn on error reporting
+/**
+ * index.php
+ * @author Sarah
+ * @version 1.0
+ */
+
+//turn on error reporting
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
 
 require_once('vendor/autoload.php');
-
-//Session start after require_once
+//session start
 session_start();
 
 $f3 = Base::instance();
@@ -29,7 +34,7 @@ $f3->route('GET|POST /personal', function ()
     $controller->personal();
 });
 
-//Profile route
+//profile info route
 $f3->route('GET|POST /profile', function ()
 {
     global $controller;
