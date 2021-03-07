@@ -22,30 +22,35 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="collapsibleNavbar">
-
         </div>
     </nav>
-
-<div class="container  border rounded mt-4 mb-4 p-4">
-    <div class="row">
-     <div class="col-md-6 p-3 col-lg-6">
-            <div class="border rounded">
-            <h6 class="p-3 mb-0 border-bottom">Name: {{@SESSION.fname}} {{@SESSION.lname}} </h6>
-            <h6 class="p-3 mb-0 border-bottom">Gender: {{@SESSION.userGender}}</h6>
-            <h6 class="p-3 mb-0 border-bottom">Age: {{@SESSION.age}}</h6>
-            <h6 class="p-3 mb-0 border-bottom">Phone: {{@SESSION.phone}}</h6>
-            <h6 class="p-3 mb-0 border-bottom">Email: {{@SESSION.email}}</h6>
-            <h6 class="p-3 mb-0 border-bottom">State: {{@SESSION.state}}</h6>
-            <h6 class="p-3 mb-0 border-bottom">Seeking: {{@SESSION.seeking}}</h6>
-            <h6 class="p-3 mb-0">Interests: {{@SESSION.indoorAndOutdoor}}</h6>
+    <div class="container mt-4 mb-4 p-4 border rounded">
+        <div class="row">
+            <div class="col-md-6 col-lg-6">
+                <div class="border rounded">
+                    <h6 class="p-3 border-bottom">Name: {{@SESSION.member->getFname()}} {{@SESSION.member->getLname()}}</h6>
+                    <h6 class="p-3 border-bottom ">Age: {{@SESSION.member->getAge()}}</h6>
+                    <h6 class="p-3 border-bottom">Gender: {{@SESSION.member->getGender()}}</h6>
+                    <h6 class="p-3 border-bottom">Phone: {{@SESSION.member->getPhone()}}</h6>
+                    <h6 class="p-3 border-bottom">Email: {{@SESSION.member->getEmail()}}</h6>
+                    <h6 class="p-3 border-bottom">State: {{@SESSION.member->getState()}}</h6>
+                    <h6 class="p-3 border-bottom">Seeking: {{@SESSION.member->getSeeking()}}</h6>
+                    <check if="is-a{{@SESSION.member, premium}}">
+                        <check if="{{empty(@SESSION.member->getIndoor())==true && empty(@SESSION.member->getOutdoor())==true}}">
+                            <true><h6 class="p-3">Interests: N/A</h6></true>
+                            <false><h6 class="p-3">Interests: {{implode(", ", array_merge(@SESSION.member->getIndoor(),
+                                    @SESSION.member->getOutdoor()))}}</h6></false>
+                         </check>
+                    </check>
+                </div>
             </div>
-        </div>
+
 
         <div class="col-md-6 col-lg-5  align-items-center">
                 <img class=" rounded h mt-2" src="images/pic.png">
         <div class="p-3">
                 <label class="pt-0 mt-0 position-relative fontSize">Biography</label>
-                <textarea class="form-control textarea1"  placeholder="{{@SESSION.bio}}" maxlength="1100" rows="10"></textarea>
+                <textarea class="form-control textarea1"  placeholder="{{@SESSION.member->getBio()}}" maxlength="1100" rows="10"></textarea>
         </div>
         </div>
     </div>
