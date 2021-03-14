@@ -205,11 +205,23 @@ class Controller
      */
     function summary()
     {
-
+        //writing to database
+       // global $dataLayer;
+        $GLOBALS['dataLayer']->insertMember($_SESSION['member']);
         $view = new Template();
         echo $view->render('views/summary.html');
-        session_destroy();
+    }
 
+    /**
+     * this admin function display the member info
+     */
+    function admin()
+    {
+        // global variable
+        $dataLayer = $GLOBALS['dataLayer']->getMembers();
+        $this->_f3->set('persons', $dataLayer);
+        $view = new Template();
+        echo $view->render('views/admin.html');
     }
 }
 
