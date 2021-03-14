@@ -52,6 +52,7 @@
             </thead>
 
             <tbody>
+            <!-- using the repeat block for rows -->
             <repeat group="{{@persons}}" value="{{@person}}">
                 <tr>
                     <th>{{@person['member_id']}}</th>
@@ -62,6 +63,7 @@
                     <td>{{@person['state']}}</td>
                     <td>{{@person['email']}}</td>
                     <td>{{@person['seeking']}}</td>
+                    <!-- if person chose premium, make the checkbox check -->
                     <td><input type="checkbox"<check if="{{@person['premium']}}">
                         <true>checked</true>
                         <false>unchecked</false>
