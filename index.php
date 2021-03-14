@@ -10,13 +10,17 @@ ini_set('display_errors', 1);
 error_reporting(E_ALL);
 
 require_once('vendor/autoload.php');
+//connecting to database
+require $_SERVER['DOCUMENT_ROOT'].'/../config.php';
+
 //session start
 session_start();
 
 $f3 = Base::instance();
-$validator = new Validate();
-$dataLayer = new DataLayer();
+$dataLayer = new DataLayer($dbh);
+$validator = new Validate($dataLayer);
 $controller = new Controller($f3);
+
 
 $f3->set('DEBUG', 3);
 
@@ -49,11 +53,17 @@ $f3->route('GET|POST /interest', function ()
 });
 
 //summary route
-$f3->route('GET|POST /summary', function ()
+$f3->route('GET /summary', function ()
 {
     global $controller;
     $controller->summary();
 
+});
+//admin route
+$f3->route('GET /admin', function ()
+{
+    global $controller;
+    $controller->admin();
 });
 
 //run fat free
