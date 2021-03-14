@@ -76,7 +76,7 @@ class DataLayer
 
 
     function getMember($member_id){
-        $sql = "SELECT * FROM member WHERE member_id";
+        $sql = "SELECT * FROM member WHERE member_id = :member_id";
 
         $statement = $this->_dbh->prepare($sql);
         $statement->bindParam(':member_id', $member_id, PDO::PARAM_INT);
@@ -88,10 +88,10 @@ class DataLayer
 
 
     function getInterests($member_id){
-        $sql = "SELECT * FROM member WHERE interest";
+        $sql = "SELECT interests FROM member WHERE member_id = :member_id";
 
         $statement = $this->_dbh->prepare($sql);
-        $statement->bindParam(':interests', $member_id, PDO::PARAM_INT);
+        $statement->bindParam(':member_id', $member_id, PDO::PARAM_INT);
         $statement->execute();
         return $statement->fetchAll(PDO::FETCH_ASSOC);
     }
